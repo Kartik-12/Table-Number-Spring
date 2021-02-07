@@ -22,5 +22,10 @@ Before running the project make sure to run create-db.sql in your local database
 Once the project is running, by default the server port is 8080 ( if not changed in application.properties). so using a jmeter or postman you can make a POST request
 using the API "http://localhost:8080/addnumber".
 
+For the POST Request you can pass your request body as the JSON object as below - 
 
+{
+"tableNumber" : number
+}
 
+You can change the number to the desired integer value and from 0 to number will be stored in the MySQL database.
