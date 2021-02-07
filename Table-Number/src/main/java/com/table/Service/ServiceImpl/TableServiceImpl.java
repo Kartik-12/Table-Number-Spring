@@ -16,11 +16,11 @@ public class TableServiceImpl implements TableService {
 	TableDao tableDao;
 	
 	@Override
-	public String addNumber(TableNumber number) {
+	public synchronized String addNumber(TableNumber number) {
 		
-		if(tableDao.lastnumber()==0)
+		if(tableDao.countnumbers()==0)
 		{
-		for(int i=0;i<number.getTableNumber();i++)
+		for(int i=0;i<=number.getTableNumber();i++)
 		{
 			TableNumber number1 = new TableNumber();
 			number1.setTableNumber(i);
@@ -28,19 +28,23 @@ public class TableServiceImpl implements TableService {
 				
 		}
 		}
-		else if (number.getTableNumber()<=tableDao.lastnumber())
+		else
 		{
-			return "Number already exists";
-		}
-		else if (number.getTableNumber()>tableDao.lastnumber())
-		{
-			for(int i =tableDao.lastnumber()+1;i<=number.getTableNumber();i++)
+			if (number.getTableNumber()<=tableDao.lastnumber())
 			{
-				TableNumber number1 = new TableNumber();
-				number1.setTableNumber(i);
-				tableDao.save(number1);	
+				return "Number already exists";
 			}
+			else if (number.getTableNumber()>tableDao.lastnumber())
+			{
+				for(int i =tableDao.lastnumber()+1;i<=number.getTableNumber();i++)
+				{
+					TableNumber number1 = new TableNumber();
+					number1.setTableNumber(i);
+					tableDao.save(number1);	
+				}
+			}	
 		}
+		
 		return "Added number";
 		
 		}
