@@ -18,6 +18,8 @@ public class TableServiceImpl implements TableService {
 	@Override
 	public String addNumber(TableNumber number) {
 		
+		if(tableDao.lastnumber()==0)
+		{
 		for(int i=0;i<number.getTableNumber();i++)
 		{
 			TableNumber number1 = new TableNumber();
@@ -25,8 +27,23 @@ public class TableServiceImpl implements TableService {
 			tableDao.save(number1);
 				
 		}
+		}
+		else if (number.getTableNumber()<=tableDao.lastnumber())
+		{
+			return "Number already exists";
+		}
+		else if (number.getTableNumber()>tableDao.lastnumber())
+		{
+			for(int i =tableDao.lastnumber()+1;i<=number.getTableNumber();i++)
+			{
+				TableNumber number1 = new TableNumber();
+				number1.setTableNumber(i);
+				tableDao.save(number1);	
+			}
+		}
 		return "Added number";
-	}
+		
+		}
 
 	@Override
 	public List<Integer> getallNumbers() {

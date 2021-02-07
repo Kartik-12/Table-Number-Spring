@@ -1,6 +1,7 @@
 package com.table.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +11,7 @@ import com.table.Service.TableService;
 import com.table.entity.TableNumber;
 
 @RestController
+@Scope("request")
 public class TableController {
 	
 	@Autowired
