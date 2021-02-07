@@ -29,3 +29,5 @@ For the POST Request you can pass your request body as the JSON object as below 
 }
 
 You can change the number to the desired integer value and from 0 to number will be stored in the MySQL database.
+
+Added a .jmx file for load testing using Jmeter test-plan, I have tested the application using 10000 threads and 5000 threads, although I have gone through an error of JavaOutofMemory error which can be due to the limit set by Operating System, but after load testing the second time without changing the number the database result is consistent in case of 'n' number of threads.
