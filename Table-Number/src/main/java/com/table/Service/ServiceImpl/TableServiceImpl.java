@@ -33,4 +33,10 @@ public class TableServiceImpl implements TableService {
 		return null;
 	}
 
+	@Override
+	public int lastnumber() {
+		return tableDao.lastnumber();
+		
+	}
+	
 }

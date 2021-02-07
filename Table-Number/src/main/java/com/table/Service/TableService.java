@@ -9,4 +9,5 @@ public interface TableService {
 	String addNumber(TableNumber number);
 	
 	List<Integer> getallNumbers();
+	int lastnumber();
 }
