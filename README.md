@@ -12,7 +12,7 @@ Dao Layer is defined and extending the JPA repository class from the org.springf
 TableServiceImpl.java is the Service Layer implementing the TableService Interface containing the business Logic for the application and @Autowired annotation is being 
 used for dependency injection between Service Layer and Dao Layer.
 
-The method addFunction(T t) is responsible for saving the numbers from 0 to the desired number in the database. The method is synchronized so that the database should be consistent
+The method addFunction(T t) is responsible for saving the numbers in the database from 0 to the entered number in the request. The method is synchronized so that the database should be consistent
 in a multi-threaded environment. Conditions are being handled in the method if the table is empty or the number is already present in the database etc.
 
 Controller Class is defined as TableController.java and @PostMapping(value="/addnumber") is being used on the method addnumber(@RequestBody T t) for handler mapping 
