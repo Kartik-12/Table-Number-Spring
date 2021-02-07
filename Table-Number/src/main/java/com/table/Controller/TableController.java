@@ -1,8 +1,6 @@
 package com.table.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +9,6 @@ import com.table.Service.TableService;
 import com.table.entity.TableNumber;
 
 @RestController
-@Scope("request")
 public class TableController {
 	
 	@Autowired
@@ -23,9 +20,5 @@ public class TableController {
 		tableService.addNumber(number);
 		
 	}
-	@GetMapping(value="/getlastnumber")
-	public int lastnumber()
-	{
-		return tableService.lastnumber();
-	}
+	
 }

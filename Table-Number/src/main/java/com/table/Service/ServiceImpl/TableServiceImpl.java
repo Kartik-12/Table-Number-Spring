@@ -45,7 +45,7 @@ public class TableServiceImpl implements TableService {
 			}	
 		}
 		
-		return "Added number";
+		return "Operation Successfull";
 		
 		}
 
