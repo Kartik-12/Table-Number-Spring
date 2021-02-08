@@ -21,4 +21,13 @@ public class TableController {
 		
 	}
 	
+	
+	@PostMapping(value="/counter")
+	public void addcounterforthread()
+	{
+		tableService.addcounter();
+		
+	}
+	
+	
 }

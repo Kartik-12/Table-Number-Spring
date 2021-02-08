@@ -14,7 +14,8 @@ public class TableServiceImpl implements TableService {
 
 	@Autowired
 	TableDao tableDao;
-	
+	int count =0;
+	TableNumber tablenumber;
 	@Override
 	public synchronized String addNumber(TableNumber number) {
 		
@@ -49,15 +50,16 @@ public class TableServiceImpl implements TableService {
 		
 		}
 
-	@Override
-	public List<Integer> getallNumbers() {
-		return null;
-	}
 
 	@Override
-	public int lastnumber() {
-		return tableDao.lastnumber();
+	public synchronized String addcounter() {
 		
-	}
+		count++;
+		tablenumber.setTableNumber(count);
+		tableDao.save(tablenumber);
+		return "Operation Successfull";
+		
+		}
+
 	
 }
